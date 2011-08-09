@@ -1,7 +1,7 @@
 begin
   require 'jeweler'
   Jeweler::Tasks.new do |gemspec|
-    gemspec.name = "rsolr-nokogiri"
+    gemspec.name = "backupify-rsolr-nokogiri"
     gemspec.summary = "A fork of rsolr that uses nokogiri in place of builder for xml generation"
     gemspec.description = ""
     gemspec.email = "davebenvenuti@gmail.com"
