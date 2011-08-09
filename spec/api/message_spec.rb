@@ -98,22 +98,22 @@ describe RSolr::Message do
   context :delete_by_id do
     
     it 'should create a doc id delete' do
-      generator.delete_by_id(10).should == "<?xml version=\"1.0\" encoding=\"UTF-8\"?><delete><id>10</id></delete>"
+      generator.delete_by_id(10).should == "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<delete>\n<id>10</id>\n</delete>\n"
     end
     
     it 'should create many doc id deletes' do
-      generator.delete_by_id([1, 2, 3]).should == "<?xml version=\"1.0\" encoding=\"UTF-8\"?><delete><id>1</id><id>2</id><id>3</id></delete>"
+      generator.delete_by_id([1, 2, 3]).should == "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<delete>\n<id>1</id>\n<id>2</id>\n<id>3</id>\n</delete>\n"
     end
     
   end
   
   context :delete_by_query do
     it 'should create a query delete' do
-      generator.delete_by_query('status:"LOST"').should == "<?xml version=\"1.0\" encoding=\"UTF-8\"?><delete><query>status:\"LOST\"</query></delete>"
+      generator.delete_by_query('status:"LOST"').should == "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<delete>\n<query>status:\"LOST\"</query>\n</delete>\n"
     end
     
     it 'should create many query deletes' do
-      generator.delete_by_query(['status:"LOST"', 'quantity:0']).should == "<?xml version=\"1.0\" encoding=\"UTF-8\"?><delete><query>status:\"LOST\"</query><query>quantity:0</query></delete>"
+      generator.delete_by_query(['status:"LOST"', 'quantity:0']).should == "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<delete>\n<query>status:\"LOST\"</query>\n<query>quantity:0</query>\n</delete>\n"
     end
   end
   

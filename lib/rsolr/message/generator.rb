@@ -1,10 +1,10 @@
 class RSolr::Message::Generator
   
   def build &block
-    require 'builder'
-    b = ::Builder::XmlMarkup.new(:indent=>0, :margin=>0, :encoding => 'UTF-8')
-    b.instruct!
-    block_given? ? yield(b) : b
+    require 'nokogiri'
+    b = Nokogiri::XML::Builder.new(:encoding => 'UTF-8')
+    yield(b) if block_given?
+    b.to_xml(:indent => 0)
   end
   
   # generates "add" xml for updating solr
@@ -35,17 +35,19 @@ class RSolr::Message::Generator
   def add data, add_attrs={}, &block
     data = [data] unless data.is_a?(Array)
     build do |xml|
-      xml.add(add_attrs) do |add_node|
+      xml.add(add_attrs) { #do |add_node|
         data.each do |doc|
           doc = RSolr::Message::Document.new(doc) if doc.respond_to?(:each_pair)
           yield doc if block_given?
-          add_node.doc(doc.attrs) do |doc_node|
+          xml.doc_(doc.attrs) {
             doc.fields.each do |field_obj|
-              doc_node.field field_obj.value, field_obj.attrs
+              xml.field(field_obj.attrs) {
+                text field_obj.value
+              }
             end
-          end
+          }
         end
-      end
+      }
     end
   end
   

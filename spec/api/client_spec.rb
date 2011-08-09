@@ -22,38 +22,38 @@ describe RSolr::Client do
     
     it 'should forward #add calls to #update' do
       client.should_receive(:update) {|value,params|
-        value.should == "<?xml version=\"1.0\" encoding=\"UTF-8\"?><add><doc><field name=\"id\">1</field></doc></add>"
+        value.should == "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<add>\n<doc>\n<field name=\"id\">1</field>\n</doc>\n</add>\n"
       }
       client.add(:id=>1)
     end
     
     it 'should forward #commit calls to #update' do
       client.should_receive(:update).
-        with("<?xml version=\"1.0\" encoding=\"UTF-8\"?><commit/>")
+        with("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<commit/>\n")
       client.commit
     end
     
     it 'should forward #optimize calls to #update' do
       client.should_receive(:update).
-        with("<?xml version=\"1.0\" encoding=\"UTF-8\"?><optimize/>")
+        with("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<optimize/>\n")
       client.optimize
     end
     
     it 'should forward #rollback calls to #update' do
       client.should_receive(:update).
-        with("<?xml version=\"1.0\" encoding=\"UTF-8\"?><rollback/>")
+        with("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<rollback/>\n")
       client.rollback
     end
     
     it 'should forward #delete_by_id calls to #update' do
       client.should_receive(:update).
-        with("<?xml version=\"1.0\" encoding=\"UTF-8\"?><delete><id>1</id></delete>")
+        with("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<delete>\n<id>1</id>\n</delete>\n")
       client.delete_by_id 1
     end
     
     it 'should forward #delete_by_query calls to #update' do
       client.should_receive(:update).
-        with("<?xml version=\"1.0\" encoding=\"UTF-8\"?><delete><query>blah</query></delete>")
+        with("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<delete>\n<query>blah</query>\n</delete>\n")
       client.delete_by_query 'blah'
     end
     
