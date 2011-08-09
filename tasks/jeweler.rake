@@ -1,12 +1,12 @@
 begin
   require 'jeweler'
   Jeweler::Tasks.new do |gemspec|
-    gemspec.name = "rsolr"
-    gemspec.summary = "A Ruby client for Apache Solr"
-    gemspec.description = "RSolr aims to provide a simple and extensible library for working with Solr"
-    gemspec.email = "goodieboy@gmail.com"
-    gemspec.homepage = "http://github.com/mwmitchell/rsolr"
-    gemspec.authors = ["Matt Mitchell"]
+    gemspec.name = "rsolr-nokogiri"
+    gemspec.summary = "A fork of rsolr that uses nokogiri in place of builder for xml generation"
+    gemspec.description = ""
+    gemspec.email = "davebenvenuti@gmail.com"
+    gemspec.homepage = "http://github.com/backupify/rsolr"
+    gemspec.authors = ["Dave Benvenuti", "Ernie Makris"]
     
     gemspec.files = FileList['lib/**/*.rb', 'LICENSE', 'README.rdoc', 'CHANGES', 'VERSION']
     
