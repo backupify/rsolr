@@ -12,10 +12,7 @@ begin
     
     gemspec.test_files = Dir['spec/**/*.rb'] + ['Rakefile', 'tasks/spec.rake', 'tasks/rdoc.rake']
     
-    gemspec.add_dependency('builder', '>= 2.1.2')
-    
-    #require File.dirname(__FILE__) + '/../lib/rsolr'
-    #gemspec.version = RSolr.version
+    gemspec.add_dependency('nokogiri', '>= 1.3.3')
     
     now = Time.now
     gemspec.date = now.strftime '%Y-%m-%d'
