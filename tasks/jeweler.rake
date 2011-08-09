@@ -8,9 +8,9 @@ begin
     gemspec.homepage = "http://github.com/backupify/rsolr"
     gemspec.authors = ["Dave Benvenuti", "Ernie Makris"]
     
-    gemspec.files = FileList['lib/**/*.rb', 'LICENSE', 'README.rdoc', 'CHANGES', 'VERSION']
+    gemspec.files = Dir['lib/**/*.rb'] + ['LICENSE', 'README.rdoc', 'CHANGES', 'VERSION']
     
-    gemspec.test_files = ['spec/**/*.rb', 'Rakefile', 'tasks/spec.rake', 'tasks/rdoc.rake']
+    gemspec.test_files = Dir['spec/**/*.rb'] + ['Rakefile', 'tasks/spec.rake', 'tasks/rdoc.rake']
     
     gemspec.add_dependency('builder', '>= 2.1.2')
     

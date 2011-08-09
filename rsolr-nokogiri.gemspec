@@ -35,7 +35,7 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.6.2}
   s.summary = %q{A fork of rsolr that uses nokogiri in place of builder for xml generation}
-  s.test_files = ["spec/**/*.rb", "Rakefile", "tasks/spec.rake", "tasks/rdoc.rake"]
+  s.test_files = ["spec/api/client_spec.rb", "spec/api/connection/net_http_spec.rb", "spec/api/connection/requestable_spec.rb", "spec/api/connection/utils_spec.rb", "spec/api/message_spec.rb", "spec/api/rsolr_spec.rb", "spec/spec_helper.rb", "Rakefile", "tasks/spec.rake", "tasks/rdoc.rake"]
 
   if s.respond_to? :specification_version then
     s.specification_version = 3
