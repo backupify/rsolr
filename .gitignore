@@ -17,3 +17,4 @@ solr/build.xml
 coverage/
 
 doc/
+.idea
